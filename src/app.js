@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb://mongo/proyectodb2')
+mongoose.connect('mongodb://localhost/proyectodb2')
   .then(db => console.log('db connected'))
   .catch(err => console.log(err));
 
