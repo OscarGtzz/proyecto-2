@@ -2,6 +2,7 @@ version: "3"
 
 services:
   web:
+    image: proyecto-2:latest
     container_name: proyecto2
     restart: always
     build: .
@@ -9,12 +10,8 @@ services:
       - "3000:3000"
     links:
       - mongo
-    volumes:
-      - .:/usr/scr/app
   mongo:
     container_name: proyectodb2
     image: mongo
     ports:
       - "27017:27017"
-    logging:
-      driver: none

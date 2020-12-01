@@ -1,5 +1,6 @@
 FROM node:12-alpine
-WORKDIR /Proyecto 2
+WORKDIR /usr/src/app
 COPY . .
 RUN npm install 
+EXPOSE 3000:3000
 CMD ["node", "src/app.js"]

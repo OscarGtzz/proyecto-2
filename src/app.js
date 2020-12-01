@@ -5,9 +5,22 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/proyectodb2')
+//const MongoClient = require('mongodb').MongoClient;
+//const uri = "mongodb+srv://Usuario:asdqwe123@cluster0.ktsp5.mongodb.net/admin?retryWrites=true&w=majority";
+//const client = new MongoClient(uri, { useNewUrlParser: true });
+//client.connect(err => {
+//  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+//  client.close();
+//});
+
+//mongoose.connect("mongodb://mongo/proyectodb2")
+mongoose.connect(
+  "mongodb+srv://Usuario:asdqwe123@cluster0.ktsp5.mongodb.net/cluster0?retryWrites=true&w=majority",
+  {useUnifiedTopology: true, useNewUrlParser: true})
   .then(db => console.log('db connected'))
   .catch(err => console.log(err));
+
 
 
 const indexRoutes = require('./routes/index');
