@@ -1,28 +1,28 @@
 <% include partials/_header %>
-
+<!-- inputs -->
 <div class="card">
   <div class="card-body">
     <form action="/add" method="post">
       <div class="form-group">
-        <input class="form-control" type="text" name="title" placeholder="Usuario">
+        <input class="form-control" type="text" name="usuario" placeholder="Usuario">
       </div>
       <div class="form-group">
-        <input class="form-control" type="text" name="date" placeholder="Date">
+        <input class="form-control" type="text" name="fecha" placeholder="Date">
       </div>
       <div class="form-group">
-        <textarea class="form-control" name="description" cols="80" placeholder="Actividad"></textarea>
+        <textarea class="form-control" name="actividad" cols="80" placeholder="Actividad"></textarea>
       </div>
       <button class="btn btn-primary" type="submit">
         Agregar
       </button>
     </form>      
   </div>
-  <!-- LIST -->
-    
+
+  <!-- Tabla -->
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>No</th>
         <th>Usuario</th>
         <th>Fecha</th>
         <th>Actividad</th>
@@ -33,19 +33,19 @@
       <% for(var i=0; i < tasks.length; i++) { %>
         <tr>
           <td><%= i + 1%></td>
-          <td><strong><%= tasks[i].title %></strong></td>
-          <td><%= tasks[i].date %></td>
-          <td><%= tasks[i].description %></td>
+          <td><strong><%= tasks[i].usuario %></strong></td>
+          <td><%= tasks[i].fecha %></td>
+          <td><%= tasks[i].actividad %></td>
           <td>
             <a
               class="<%= tasks[i].status ? 'btn btn-success' : 'btn btn-dark'%>"
               href="/turn/<%= tasks[i]._id %>">Done</a>
             <a href="/delete/<%= tasks[i]._id %>"
               class="btn btn-danger">
-              Delete
+              Borrar
             </a>
             <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
-              Edit
+              Editar
             </a>
           </td>
         </tr>
